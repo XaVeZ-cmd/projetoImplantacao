@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-08">
+    <title>Projeto Implantação</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container-fluid text-center topo">
+      <h1>Projeto Implantação</h1>
+    </div>
+    <div class="container-fluid corpo">
+      <div id="camera">
+        
+      </div>
+    </div>
+    <script src="https://cdn.glitch.com/06978118-5bd3-4a1b-b0b6-e9ec1c602290%2Fquagga.min.js?v=1590492712405"></script>
+    <script>
+          Quagga.init({
+            inputStream : {
+              name : "Live",
+              type : "LiveStream",
+              target: document.querySelector('camera')    // Or '#yourElement' (optional)
+            },
+            decoder : {
+              readers : ["code_128_reader"]
+            }
+          }, function(err) {
+              if (err) {
+                  console.log(err);
+                  return
+              }
+              console.log("Initialization finished. Ready to start");
+              Quagga.start();
+          });
+          Quagga.onDetected(function (data){
+            console.log(data);
+          })
+
+    </script>
+  </body>
+</html>
+http://www.auere.com.br/testes/barcode.php
